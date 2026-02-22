@@ -1,4 +1,1 @@
-import { redirect } from 'next/navigation'
-export default function DashboardIndex() {
-  redirect('/dashboard')
-}
+export { default } from '../dashboard/page'
