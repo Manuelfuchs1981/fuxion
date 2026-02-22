@@ -7,15 +7,15 @@ import { createClient } from '@/lib/supabase/client'
 import type { User } from '@supabase/supabase-js'
 
 const NAV_ITEMS = [
-  { href: '/dashboard',               label: 'Dashboard',    icon: 'grid'      },
-  { href: '/journal',       label: 'Journal',      icon: 'book'      },
-  { href: '/rechnungen',    label: 'Rechnungen',   icon: 'file-text' },
-  { href: '/offerten',      label: 'Offerten',     icon: 'clipboard' },
-  { href: '/banking',       label: 'Banking',      icon: 'home'      },
-  { href: '/reporting',     label: 'Reporting',    icon: 'bar-chart' },
-  { href: '/kontakte',      label: 'Kontakte',     icon: 'users'     },
-  { href: '/mwst',          label: 'MWST',         icon: 'percent'   },
-  { href: '/einstellungen', label: 'Einstellungen',icon: 'settings'  },
+  { href: '/dashboard',                  label: 'Dashboard',    icon: 'grid'      },
+  { href: '/dashboard/journal',          label: 'Journal',      icon: 'book'      },
+  { href: '/dashboard/rechnungen',       label: 'Rechnungen',   icon: 'file-text' },
+  { href: '/dashboard/offerten',         label: 'Offerten',     icon: 'clipboard' },
+  { href: '/dashboard/banking',          label: 'Banking',      icon: 'home'      },
+  { href: '/dashboard/reporting',        label: 'Reporting',    icon: 'bar-chart' },
+  { href: '/dashboard/kontakte',         label: 'Kontakte',     icon: 'users'     },
+  { href: '/dashboard/mwst',             label: 'MWST',         icon: 'percent'   },
+  { href: '/dashboard/einstellungen',    label: 'Einstellungen',icon: 'settings'  },
 ]
 
 function NavIcon({ name }: { name: string }) {
@@ -55,8 +55,6 @@ export default function Sidebar({ user }: { user: User }) {
 
   return (
     <aside className={`${width} min-h-screen bg-slate-900 flex flex-col flex-shrink-0 transition-all duration-200`}>
-
-      {/* Logo */}
       <div className="flex items-center justify-between px-4 py-4 border-b border-white/10 min-h-[58px]">
         {!collapsed && (
           <div className="flex items-center gap-2">
@@ -69,41 +67,26 @@ export default function Sidebar({ user }: { user: User }) {
             <span className="text-lg font-bold text-white">Fuxion</span>
           </div>
         )}
-        <button
-          onClick={() => setCollapsed(!collapsed)}
-          className="text-white/25 hover:text-white/60 transition-colors p-1 rounded"
-        >
+        <button onClick={() => setCollapsed(!collapsed)} className="text-white/25 hover:text-white/60 transition-colors p-1 rounded">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-            {collapsed
-              ? <path d="M9 18l6-6-6-6"/>
-              : <path d="M15 18l-6-6 6-6"/>
-            }
+            {collapsed ? <path d="M9 18l6-6-6-6"/> : <path d="M15 18l-6-6 6-6"/>}
           </svg>
         </button>
       </div>
-
-      {/* Tenant */}
       {!collapsed && (
         <div className="mx-2 my-2 bg-white/5 rounded px-3 py-2">
           <div className="text-[10px] text-white/30 font-semibold uppercase tracking-wider">Mandant</div>
           <div className="text-xs text-white font-semibold mt-0.5">Muster GmbH</div>
         </div>
       )}
-
-      {/* Nav */}
       <nav className="flex-1 pt-1">
         {NAV_ITEMS.map((item) => {
           const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
           return (
-            <Link
-              key={item.href}
-              href={item.href}
+            <Link key={item.href} href={item.href}
               className={`flex items-center gap-2.5 px-4 py-2.5 text-sm border-l-2 transition-all
                 ${collapsed ? 'justify-center px-0' : ''}
-                ${isActive
-                  ? 'text-white border-[#E4572E] bg-[#E4572E]/10'
-                  : 'text-white/40 border-transparent hover:text-white hover:bg-white/5'
-                }`}
+                ${isActive ? 'text-white border-[#E4572E] bg-[#E4572E]/10' : 'text-white/40 border-transparent hover:text-white hover:bg-white/5'}`}
             >
               <NavIcon name={item.icon} />
               {!collapsed && <span>{item.label}</span>}
@@ -111,20 +94,13 @@ export default function Sidebar({ user }: { user: User }) {
           )
         })}
       </nav>
-
-      {/* User + Logout */}
       <div className="border-t border-white/10">
-        <button
-          onClick={handleLogout}
-          className={`flex items-center gap-2.5 px-4 py-2.5 w-full text-sm text-white/40 hover:text-white hover:bg-white/5 transition-all border-l-2 border-transparent ${collapsed ? 'justify-center px-0' : ''}`}
-        >
+        <button onClick={handleLogout} className={`flex items-center gap-2.5 px-4 py-2.5 w-full text-sm text-white/40 hover:text-white hover:bg-white/5 transition-all border-l-2 border-transparent ${collapsed ? 'justify-center px-0' : ''}`}>
           <NavIcon name="logout" />
           {!collapsed && <span>Abmelden</span>}
         </button>
         <div className={`flex items-center gap-2.5 px-4 py-3 border-t border-white/10 ${collapsed ? 'justify-center px-0' : ''}`}>
-          <div className="w-7 h-7 rounded-full bg-[#E4572E] flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0">
-            {initials}
-          </div>
+          <div className="w-7 h-7 rounded-full bg-[#E4572E] flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0">{initials}</div>
           {!collapsed && (
             <div>
               <div className="text-xs text-white font-medium truncate max-w-[130px]">{user.email}</div>
