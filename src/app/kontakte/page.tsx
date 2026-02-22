@@ -50,7 +50,7 @@ export default function KontaktePage() {
         </div>
         <button
           onClick={handleNew}
-          className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
+          className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm flex-shrink-0"
         >
           <Plus className="w-4 h-4" />
           Neuer Kontakt
@@ -66,7 +66,7 @@ export default function KontaktePage() {
           onChange={e => setSearchQuery(e.target.value)}
           className="w-full pl-9 pr-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-      </div>
+      <div className="min-w-0">
 
       {loading ? (
         <div className="flex items-center justify-center h-64 text-gray-400">Lade Kontakte…</div>
