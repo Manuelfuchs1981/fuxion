@@ -95,7 +95,7 @@ function KontaktRow({ kontakt: k, onEdit, onDelete }: {
             <MoreVertical className="w-4 h-4" />
           </button>
           {menuOpen && (
-            <div className="absolute right-0 top-7 z-20 bg-white border border-gray-200 rounded-lg shadow-lg w-40 py-1">
+            <div className="absolute right-0 z-20 bg-white border border-gray-200 rounded-lg shadow-lg w-40 py-1" style={{bottom: '100%', marginBottom: '4px'}}>
               <button
                 onClick={() => { onEdit(k); setMenuOpen(false) }}
                 className="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
