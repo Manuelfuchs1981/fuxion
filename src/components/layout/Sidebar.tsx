@@ -8,14 +8,14 @@ import type { User } from '@supabase/supabase-js'
 
 const NAV_ITEMS = [
   { href: '/dashboard',               label: 'Dashboard',    icon: 'grid'      },
-  { href: '/dashboard/journal',       label: 'Journal',      icon: 'book'      },
-  { href: '/dashboard/rechnungen',    label: 'Rechnungen',   icon: 'file-text' },
-  { href: '/dashboard/offerten',      label: 'Offerten',     icon: 'clipboard' },
-  { href: '/dashboard/banking',       label: 'Banking',      icon: 'home'      },
-  { href: '/dashboard/reporting',     label: 'Reporting',    icon: 'bar-chart' },
-  { href: '/dashboard/kontakte',      label: 'Kontakte',     icon: 'users'     },
-  { href: '/dashboard/mwst',          label: 'MWST',         icon: 'percent'   },
-  { href: '/dashboard/einstellungen', label: 'Einstellungen',icon: 'settings'  },
+  { href: '/journal',       label: 'Journal',      icon: 'book'      },
+  { href: '/rechnungen',    label: 'Rechnungen',   icon: 'file-text' },
+  { href: '/offerten',      label: 'Offerten',     icon: 'clipboard' },
+  { href: '/banking',       label: 'Banking',      icon: 'home'      },
+  { href: '/reporting',     label: 'Reporting',    icon: 'bar-chart' },
+  { href: '/kontakte',      label: 'Kontakte',     icon: 'users'     },
+  { href: '/mwst',          label: 'MWST',         icon: 'percent'   },
+  { href: '/einstellungen', label: 'Einstellungen',icon: 'settings'  },
 ]
 
 function NavIcon({ name }: { name: string }) {
