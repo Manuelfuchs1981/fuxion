@@ -177,11 +177,11 @@ export default function KontaktModal({ kontakt, onClose, onSaved }: Props) {
                 onChange={e => setLand(e.target.value)}
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="CH">🇨🇭 CH</option>
-                <option value="DE">🇩🇪 DE</option>
-                <option value="AT">🇦🇹 AT</option>
-                <option value="FR">🇫🇷 FR</option>
-                <option value="IT">🇮🇹 IT</option>
+                <option value="CH">🇨🇭 Schweiz</option>
+                <option value="DE">🇩🇪 Deutschland</option>
+                <option value="AT">🇦🇹 Österreich</option>
+                <option value="FR">🇫🇷 Frankreich</option>
+                <option value="IT">🇮🇹 Italien</option>
               </select>
             </div>
           </div>
